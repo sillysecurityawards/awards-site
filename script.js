@@ -12,7 +12,8 @@ scene.background = new THREE.Color(0xffffff);
 // Camera
 const camera = new THREE.PerspectiveCamera(65);
 
-function repositionCamera() { const canvasSize = canvas.getBoundingClientRect();
+function repositionCamera() {
+  const canvasSize = canvas.getBoundingClientRect();
   const angle = camera.fov / 2
   const height = 3
 
@@ -63,48 +64,91 @@ world.addBody(groundBody);
 // Instantiate a loader
 const loader = new GLTFLoader();
 loader.load("./trophy.glb", function (model) {
-  const nodes = model.scene.children[0].children;
+  const nodes = model.scene.children;
+  const objects = [];
+  const maxObjects = 50;
+  const initialPosition = new THREE.Vector3(
+    0,
+    camera.position.y * 2 + 0.5, // A bit of a hack but it's the value we want
+    0
+  );
+  let isFirst = true;
 
-  const meshes = [];
+  function spawnObject() {
+    if (objects.length >= maxObjects) {
+      const obj = objects.shift();
 
-  // The two nodes are the gold cup and the brown base (need to group these together)
-  for (const node of nodes) {
-    node.geometry.computeBoundingBox();
-    node.geometry.computeBoundingSphere();
-    const mesh = new THREE.Mesh(node.geometry, node.material);
+      obj.body.position = new CANNON.Vec3(
+        initialPosition.x,
+        initialPosition.y,
+        initialPosition.z,
+      );
+      obj.body.angularVelocity = new CANNON.Vec3(0, 0, 0);
+      obj.body.velocity = new CANNON.Vec3(0, 0, 0);
 
-    // Get size of our entire mesh
-    mesh.size = mesh.geometry.boundingBox.getSize(new THREE.Vector3());
+      objects.push(obj);
 
-    // Note that we need to scale down our geometry because of Box's Cannon.js class setup
-    const box = new CANNON.Box(new CANNON.Vec3().copy(mesh.size).scale(0.5));
+      return;
+    }
 
-    // Attach the body directly to the mesh
-    mesh.body = new CANNON.Body({
-      mass: 1, // kg
-      position: new CANNON.Vec3(0, 0, 0), // m
+    const body = new CANNON.Body({
+      mass: 1,
+      position: new CANNON.Vec3(
+        initialPosition.x,
+        initialPosition.y,
+        initialPosition.z,
+      ),
     });
 
-    // Add the shape to the body and offset it to match the center of our mesh
-    const { center } = mesh.geometry.boundingSphere;
-    mesh.body.addShape(box, new CANNON.Vec3(center.x, center.y, center.z));
+    const obj = new THREE.Object3D();
 
-    mesh.body.angularVelocity.set(0, 10, 0);
-    mesh.body.angularDamping = 0.5;
+    for (const node of nodes) {
+      const size = node.geometry.boundingBox.getSize(new THREE.Vector3());
+      const shape = new CANNON.Box(new CANNON.Vec3().copy(size).scale(0.5))
 
-    // Add the body to our world
-    world.addBody(mesh.body);
+      const { center } = node.geometry.boundingSphere;
 
-    meshes.push(mesh);
-    scene.add(mesh);
+      body.addShape(
+        shape,
+        new CANNON.Vec3(
+          center.x + node.position.x,
+          center.y + node.position.y,
+          center.z + node.position.z,
+        ),
+        node.quaternion,
+      )
+
+      obj.add(node.clone());
+    }
+
+    if (!isFirst) {
+      const rotation = new THREE.Quaternion().random();
+      body.quaternion = new CANNON.Quaternion(
+        rotation.x,
+        rotation.y,
+        rotation.z,
+        rotation.w,
+      );
+    }
+
+    isFirst = false;
+
+    obj.body = body;
+
+    world.addBody(body);
+    scene.add(obj);
+    objects.push(obj);
   }
+
+  spawnObject();
+  document.querySelector(".nominate__button").addEventListener("click", spawnObject);
 
   const draw = () => {
     cannonDebugger.update();
 
-    for (const mesh of meshes) {
-      mesh.position.copy(mesh.body.position);
-      mesh.quaternion.copy(mesh.body.quaternion);
+    for (const obj of objects) {
+      obj.position.copy(obj.body.position);
+      obj.quaternion.copy(obj.body.quaternion);
     }
 
     world.fixedStep();
