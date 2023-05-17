@@ -4,19 +4,25 @@ import * as CANNON from "./cannon-es.js";
 import CannonDebugger from "./cannon-es-debugger.js";
 
 const canvas = document.getElementById("three-canvas");
-const canvasSize = canvas.getBoundingClientRect();
 
 // Scene
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 // Camera
-const camera = new THREE.PerspectiveCamera(
-  75,
-  canvasSize.width / canvasSize.height
-);
-// camera.position.y = 3;
-camera.position.z = 3;
+const camera = new THREE.PerspectiveCamera(65);
+
+function repositionCamera() { const canvasSize = canvas.getBoundingClientRect();
+  const angle = camera.fov / 2
+  const height = 3
+
+  camera.position.y = height
+  camera.position.z = Math.tan((90 - angle) * Math.PI / 180) * height
+  camera.aspect = canvasSize.width / canvasSize.height
+  camera.updateProjectionMatrix();
+}
+
+repositionCamera();
 scene.add(camera);
 
 // Renderer
@@ -24,8 +30,16 @@ const renderer = new THREE.WebGLRenderer({
   antialias: true,
   canvas: canvas,
 });
+const canvasSize = canvas.getBoundingClientRect();
 renderer.setSize(canvasSize.width, canvasSize.height, false);
 renderer.setPixelRatio(window.devicePixelRatio);
+camera.updateProjectionMatrix();
+
+window.addEventListener("resize", () => {
+  const canvasSize = canvas.getBoundingClientRect();
+  renderer.setSize(canvasSize.width, canvasSize.height, false);
+  repositionCamera();
+})
 
 // Light
 const light = new THREE.PointLight(0xffffff, 1, 100);
@@ -37,6 +51,14 @@ const world = new CANNON.World({
   gravity: new CANNON.Vec3(0, -9.82, 0), // m/s²
 });
 const cannonDebugger = new CannonDebugger(scene, world);
+
+// Static ground plane
+const groundShape = new CANNON.Plane();
+const groundBody = new CANNON.Body({ mass: 0 });
+groundBody.addShape(groundShape);
+groundBody.position.set(0, 0, 0);
+groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
+world.addBody(groundBody);
 
 // Instantiate a loader
 const loader = new GLTFLoader();
@@ -76,14 +98,6 @@ loader.load("./trophy.glb", function (model) {
     meshes.push(mesh);
     scene.add(mesh);
   }
-
-  // Static ground plane
-  const groundShape = new CANNON.Plane();
-  const groundBody = new CANNON.Body({ mass: 0 });
-  groundBody.addShape(groundShape);
-  groundBody.position.set(0, 0, 0);
-  groundBody.quaternion.setFromEuler(-Math.PI / 2, 0, 0);
-  world.addBody(groundBody);
 
   const draw = () => {
     cannonDebugger.update();
