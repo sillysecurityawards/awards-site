@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Silly Security Awards</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "./three/three.module.min.js",
+          "cannon-es": "./cannon-es.js"
+        }
+      }
+    </script>
+    <script src="./script.js" type="module"></script>
+  </head>
+  <body>
+    <canvas class="three-canvas" id="three-canvas"></canvas>
+    <div class="nominate container-padding">
+      <p class="nominate__text">
+        Have a spare $2500? Nominate yourself for an award!
+      </p>
+      <button class="nominate__button button button--primary" type="button">
+        Nominate yourself
+      </button>
+    </div>
+    <div class="hero">
+      <div class="hero__inner container">
+        <h1 class="hero__title">Stop Silly Security Awards</h1>
+      </div>
+    </div>
+  </body>
+</html>
