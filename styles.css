@@ -535,7 +535,6 @@ body {
   flex-direction: column;
   min-height: 100%;
   overflow-x: hidden;
-  padding-bottom: 4em;
   font-family: var(--font-mono);
   font-size: var(--font-size-base);
   color: var(--color-slate-dark);
@@ -547,6 +546,10 @@ body {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }
+}
+
+.home {
+  padding-bottom: 4em;
 }
 
 #__next {
@@ -993,11 +996,14 @@ svg {
 .tile a::before {
   position: absolute;
   inset: 0;
+  content: '';
+}
+
+.tile:not(.tile--internal) a::before {
   background-image: url('./external.svg');
   background-repeat: no-repeat;
   background-size: 0.9rem 0.9rem;
   background-position: right 0.9rem bottom 0.9rem;
-  content: '';
 }
 
 .tile a:not(.button):hover {
