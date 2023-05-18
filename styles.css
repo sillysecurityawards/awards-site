@@ -811,20 +811,18 @@ svg {
   transform-style: preserve-3d;
   perspective: 1000px;
   pointer-events: none;
+  -webkit-mask-image: linear-gradient(transparent 0%, #000);
 }
 
-.background::before {
+.background div {
   position: fixed;
-  z-index: -1;
   bottom: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMCcgaGVpZ2h0PScxMCc+CiAgPHJlY3QgeD0nMCcgeT0nMCcgd2lkdGg9JzEnIGhlaWdodD0nMScgZmlsbD0nIzUyM2FhNCcgLz4KPC9zdmc+");
-  -webkit-mask-image: linear-gradient(transparent 0%, #000);
   opacity: 0.5;
-  transform: rotateX(60deg) translateY(18%);
-  content: '';
+  transform: rotateX(60deg) translateY(18%)
 }
 
 .nominate__clear {
