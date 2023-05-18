@@ -12,3 +12,5 @@ assignees: ''
 ### Awarding organisation
 
 ### Link to award page / organisation site
+
+### Company logo image

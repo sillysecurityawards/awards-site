@@ -10,3 +10,5 @@ assignees: ''
 ### Company name
 
 ### Link to company site
+
+### Company logo image
