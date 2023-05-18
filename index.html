@@ -4,6 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Silly Security Awards</title>
+    <link rel="stylesheet" href="./toastify.css" />
     <link rel="stylesheet" href="./styles.css" />
     <script type="importmap">
       {
@@ -13,21 +14,76 @@
         }
       }
     </script>
-    <script src="./script.js" type="module"></script>
+    <script src="./awards.js" type="module"></script>
   </head>
   <body>
+    <div class="background"></div>
     <canvas class="three-canvas" id="three-canvas"></canvas>
-    <div class="nominate container-padding">
-      <p class="nominate__text">
-        Have a spare $2500? Nominate yourself for an award!
-      </p>
-      <button class="nominate__button button button--primary" type="button">
-        Nominate yourself
+
+    <div class="nominate">
+      <div class="nominate__inner container-padding">
+        <p class="nominate__text" id="nominate-phrase">
+          Have a spare $3,500? Nominate yourself for an&nbsp;award!
+        </p>
+        <i class="nominate__arrow"></i>
+        <button
+          class="nominate__button button button--primary"
+          id="nominate-button"
+          type="button"
+        >
+          Nominate yourself<span class="nominate__button__mobile">
+            for an award</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <div class="nominate__clear" id="nominate-clear">
+      <button class="button button--secondary button--small" type="button">
+        Clear out your hard-earned awards?
       </button>
     </div>
+
     <div class="hero">
       <div class="hero__inner container">
-        <h1 class="hero__title">Stop Silly Security Awards</h1>
+        <h1 class="hero__title">Stop Silly Security&nbsp;Awards</h1>
+        <p class="hero__subtitle">
+          Don't play the deceitful marketing game of farcical&nbsp;awards.
+        </p>
+        <div class="hero__text rich-text">
+          <p>
+            From boutique marketing firms turning a dime, desperate startups
+            shouting for attention to the mega-corps of technology, this stuff
+            has become&nbsp;pervasive. In an industry that should understand
+            that trust is key, it's hard to believe that this
+            is&nbsp;acceptable.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tiles container">
+      <div class="tile">
+        <h2 class="tile__title">The Pledge</h2>
+        <ul class="tile__details">
+          <li>
+            <span>Check out companies that have signed the&nbsp;pledge</span>
+          </li>
+          <li><span>Add your company to the&nbsp;pledge</span></li>
+        </ul>
+        <a class="tile__action button button--primary" href="/pledge"
+          >See the pledge</a
+        >
+      </div>
+      <div class="tile">
+        <h2 class="tile__title">The Awards</h2>
+        <ul class="tile__details">
+          <li><span>Check out the list of silly security&nbsp;awards</span></li>
+          <li><span>Nominate an award to add to the&nbsp;list</span></li>
+        </ul>
+        <a class="tile__action button button--primary" href="/awards"
+          >See the awards</a
+        >
       </div>
     </div>
   </body>
