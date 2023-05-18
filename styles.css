@@ -903,9 +903,13 @@ svg {
 
 .tiles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   column-gap: var(--space-m-l);
   row-gap: var(--space-m-l);
+}
+
+.tiles--fit {
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 @media (max-width: 23.75em) {
@@ -916,6 +920,7 @@ svg {
 }
 
 .tile {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -963,6 +968,10 @@ svg {
   margin-top: 1.5em;
 }
 
+.tile__action:active {
+  transform: none;
+}
+
 .tile__name,
 .tile__award {
   font-size: var(--font-size-m);
@@ -972,8 +981,41 @@ svg {
 .tile__org {
   margin-top: 1em;
   font-size: var(--font-size-s);
+  font-weight: 600;
   color: var(--color-slate);
   text-transform: uppercase;
+}
+
+.tile a:not(.button) {
+  transition: color var(--transition-duration);
+}
+
+.tile a::before {
+  position: absolute;
+  inset: 0;
+  background-image: url('./external.svg');
+  background-repeat: no-repeat;
+  background-size: 0.9rem 0.9rem;
+  background-position: right 0.9rem bottom 0.9rem;
+  content: '';
+}
+
+.tile a:not(.button):hover {
+  color: var(--color-purple);
+}
+
+.tile a svg {
+  flex-shrink: 0;
+  width: 0.85em;
+  margin-left: 0.5em;
+  transform: translateY(-10%);
+}
+
+.tile__logo {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 1.5em;
+  object-fit: contain;
 }
 
 /* Header */
