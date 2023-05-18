@@ -200,7 +200,7 @@ loader.load("./trophy.glb", function (model) {
       duration: 5000,
       stopOnFocus: false,
       style: {
-        background: "rgb(237 232 255 / 90%)",
+        background: "rgb(237 232 255 / 95%)",
       },
     }).showToast();
 

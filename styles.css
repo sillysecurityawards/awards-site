@@ -442,7 +442,7 @@ th {
   --color-slate-dark-25: rgba(11, 18, 33, 0.25);
   --color-slate-dark-50: rgba(11, 18, 33, 0.5);
   --color-slate-dark-75: rgba(11, 18, 33, 0.75);
-  --color-slate: #545465;
+  --color-slate: rgb(0 12 36 / 75%);
   --color-slate-light: #ced0d3;
   --color-slate-xlight: #e6e7e8;
   --color-white: #ffffff;
@@ -628,7 +628,7 @@ svg {
 
 .button--secondary {
   color: var(--color-slate-dark);
-  background-color: rgb(237 232 255 / 90%);
+  background-color: rgb(237 232 255 / 95%);
 }
 
 .button--secondary:hover {
@@ -701,7 +701,7 @@ svg {
   padding: 1em;
   margin-top: 1.7em;
   gap: 0.8em;
-  background-color: rgb(237 232 255 / 90%);
+  background-color: rgb(237 232 255 / 95%);
   border-radius: 1px;
 }
 
@@ -721,9 +721,7 @@ svg {
   z-index: 20;
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgb(237 232 255 / 90%);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background-color: rgb(237 232 255 / 95%);
 }
 
 .nominate__inner {
@@ -865,8 +863,6 @@ svg {
 }
 
 .nominate__clear button {
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
   pointer-events: all;
 }
 
@@ -883,8 +879,6 @@ svg {
   margin-top: 4.05em;
   font-weight: 600;
   color: var(--slate-dark);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
   box-shadow: none;
   cursor: default;
   width: max-content;
@@ -930,9 +924,7 @@ svg {
   padding: var(--space-m-l);
   border: 1px dashed var(--color-purple);
   border-radius: 1px;
-  background-color: rgb(246 244 255 / 20%);
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
+  background-color: rgb(252 251 255 / 50%);
 }
 
 .tile__title {
@@ -1030,9 +1022,7 @@ svg {
 .header {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: rgb(237 232 255 / 90%);
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px);
+  background-color: rgb(237 232 255 / 95%);
 }
 
 .header__inner {
