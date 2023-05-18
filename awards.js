@@ -200,7 +200,7 @@ loader.load("./trophy.glb", function (model) {
       duration: 5000,
       stopOnFocus: false,
       style: {
-        background: "rgb(237 232 255 / 85%)",
+        background: "rgb(237 232 255 / 90%)",
       },
     }).showToast();
 
@@ -208,7 +208,7 @@ loader.load("./trophy.glb", function (model) {
       clearTimeout(showClearTimeout);
       showClearTimeout = setTimeout(() => {
         nominateClear.classList.add("is-shown");
-      }, 5000);
+      }, 2500);
     }
 
     nominatePhrase.innerHTML =
