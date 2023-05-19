@@ -653,6 +653,29 @@ svg {
   margin-top: 1.25em;
 }
 
+.rich-text a {
+  font-weight: 700;
+  color: var(--color-purple);
+  text-decoration: underline;
+  text-decoration-thickness: max(1.5px, 0.07em);
+  text-underline-offset: 0.15em;
+  text-decoration-color: var(--color-purple-25);
+  transition-property: color, text-decoration-color;
+  transition-duration: var(--transition-duration);
+}
+
+.rich-text a:hover {
+  color: var(--color-slate-dark);
+  text-decoration-color: var(--color-purple);
+}
+
+.rich-text li::before {
+  margin-right: 0.4em;
+  font-weight: 700;
+  color: var(--color-purple);
+  content: '*';
+}
+
 /* Hero */
 /* ============================================ */
 
