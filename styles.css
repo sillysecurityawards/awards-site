@@ -701,38 +701,43 @@ svg {
 }
 
 .hero__subtitle {
-  margin-top: 0.8em;
+  margin-top: 0.85em;
+  margin-bottom: 0.2em;
   font-size: var(--font-size-l);
   font-style: italic;
   text-align: center;
 }
 
 .hero__text {
-  max-width: 55em;
+  max-width: 60em;
   margin-top: 1.3em;
   margin-right: auto;
   margin-left: auto;
-  text-align: center;
+}
+
+.hero__text:last-child {
+  margin-bottom: -0.4em;
 }
 
 .hero__action {
+  width: 100%;
+  max-width: 60em;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
   padding: 1em;
-  margin-top: 1.7em;
-  gap: 0.8em;
+  margin-top: 1.9em;
+  gap: 0.9em 1em;
   background-color: rgb(237 232 255 / 95%);
   border-radius: 1px;
 }
 
 .hero__info {
-  padding-left: 0.5em;
-  padding-right: 0.5em;
   font-size: var(--font-size-s);
   font-weight: 600;
+  line-height: 1.5;
   color: var(--color-purple);
 }
 
