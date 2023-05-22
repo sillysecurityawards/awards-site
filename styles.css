@@ -690,8 +690,8 @@ svg {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: calc(2em + 5vmin);
-  padding-bottom: calc(2em + 5vmin);
+  padding-top: min(80px, calc(2em + 5vmin));
+  padding-bottom: min(80px, calc(2em + 5vmin));
 }
 
 .hero__title {
@@ -1095,8 +1095,8 @@ svg {
 .section {}
 
 .section__inner {
-  padding-top: calc(2em + 5vmin);
-  padding-bottom: calc(2em + 5vmin);
+  padding-top: min(80px, calc(2em + 5vmin));
+  padding-bottom: min(80px, calc(2em + 5vmin));
   border-top: 1px dashed var(--color-purple);
 }
 
