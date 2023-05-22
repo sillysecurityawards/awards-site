@@ -903,10 +903,9 @@ svg {
   font-weight: 600;
   color: var(--slate-dark);
   box-shadow: none;
-  cursor: default;
+  cursor: text;
   width: max-content;
   max-width: 100%;
-  pointer-events: none;
 }
 
 @media (max-width: 63.9375em) {

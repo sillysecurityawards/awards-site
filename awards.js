@@ -198,7 +198,6 @@ loader.load("./trophy.glb", function (model) {
       text: `You won 🏆 ${awardName}`,
       position: "right",
       duration: 5000,
-      stopOnFocus: false,
       style: {
         background: "rgb(237 232 255 / 95%)",
       },
