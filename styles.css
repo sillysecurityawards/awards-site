@@ -1102,3 +1102,42 @@ svg {
   font-weight: 600;
   text-align: center;
 }
+
+/* Sharing */
+/* ============================================ */
+
+.share {
+  position: relative;
+}
+
+.share__inner {
+  position: absolute;
+  z-index: 5;
+  top: var(--space-s);
+  right: var(--space-s);
+  gap: 0.8em 1em;
+  display: flex;
+}
+
+@media (max-width: 63.9375em) {
+  .share__inner {
+    justify-content: flex-end;
+  }
+}
+
+@media (min-width: 63.9375em) {
+  .share__inner {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.share__link {
+  color: var(--color-purple);
+  opacity: 0.6;
+  transition: opacity var(--transition-duration);
+}
+
+.share__link:hover {
+  opacity: 1;
+}
