@@ -715,6 +715,10 @@ svg {
   margin-left: auto;
 }
 
+.hero__title + .hero__text {
+  margin-top: 1.1em;
+}
+
 .hero__text:last-child {
   margin-bottom: -0.4em;
 }
