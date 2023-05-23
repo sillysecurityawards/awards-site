@@ -4,7 +4,7 @@ This is the repository for the Silly Security Awards site at [https://sillysecur
 
 ## Signing the pledge
 
-Looking to sign the pledge? [Follow these steps!](https://github.com/sillysecurityawards/awards-site/blob/main/SIGNING-THE-PLEDGE.md)
+Looking to sign the pledge? [Follow these steps!](https://github.com/sillysecurityawards/awards-site/blob/main/SIGN-THE-PLEDGE.md)
 
 ## Adding an award
 
