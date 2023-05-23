@@ -1,4 +1,4 @@
-# Sig the pledge
+# Sign the pledge
 
 Please follow these steps to add your company to the [pledge page](https://sillysecurityawards.com/pledge) on the Silly Security Awards site.
 
