@@ -6,6 +6,8 @@ labels: silly award
 assignees: ""
 ---
 
+Please add the following details to nominate an award for inclusion on the site:
+
 ### Award name
 
 ### Awarding organisation
@@ -16,4 +18,4 @@ assignees: ""
 
 ### Logo image
 
-If possible, please attach a logo for the awarding organisation - ideally around 600px on the longest side
+If possible, please attach a logo for the awarding organisation - ideally a PNG/SVG around 600px on the longest side.
