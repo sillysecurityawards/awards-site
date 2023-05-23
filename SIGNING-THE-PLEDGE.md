@@ -28,3 +28,4 @@ If you have any trouble, [create a quick issue](https://github.com/sillysecurity
 5. Add your company logo to the `logos/` folder in your forked repository, and replace 'yourlogo.svg' with the file name of your logo. The image should ideally be an SVG or PNG around 600px in width
 6. [Create a Pull Request](https://github.com/sillysecurityawards/awards-site/compare), and click 'compare across forks'
 7. Select your forked repository under 'head repository', and the branch with your changes under 'compare'. Click 'Create pull request' to submit the PR!
+8. After submitting your PR, you will be asked to sign a CLA confirming your authority to add your company to the site. Once this is signed, we'll review the PR and add your company to the site.
