@@ -619,11 +619,11 @@ svg {
 
 .button--primary {
   color: var(--color-white);
-  background-color: var(--color-slate-dark);
+  background-color: var(--color-purple);
 }
 
 .button--primary:hover {
-  background-color: var(--color-purple);
+  background-color: var(--color-slate-dark);
 }
 
 .button--secondary {
