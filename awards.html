@@ -24,6 +24,8 @@
       href="./JetBrainsMono-Italic.woff2"
     />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="modulepreload" href="./a11y-dialog.esm.min.js" />
+    <script src="./modal.js" type="module"></script>
     <script src="./share.js" type="module"></script>
     <link rel="icon" href="./favicon.svg" />
 
@@ -159,7 +161,8 @@
         </div>
       </div>
     </div>
-    <section class="section">
+
+    <section class="section" id="modals">
       <div class="container">
         <div class="section__inner">
           <h2 class="section__title">Awards List</h2>
@@ -177,6 +180,15 @@
                   Awards organisation
                 </a>
               </p>
+              <button class="tile__help" data-modal="award" type="button">
+                <span>Award information</span>
+                <template>
+                  <h2 class="modal__title">Modal title</h2>
+                  <div class="modal__text rich-text">
+                    <p>Modal text</p>
+                  </div>
+                </template>
+              </button>
             </li>
             <li class="tile">
               <img
@@ -191,6 +203,15 @@
                   Awards organisation
                 </a>
               </p>
+              <button class="tile__help" data-modal="award" type="button">
+                <span>Award information</span>
+                <template>
+                  <h2 class="modal__title">Modal title</h2>
+                  <div class="modal__text rich-text">
+                    <p>Modal text</p>
+                  </div>
+                </template>
+              </button>
             </li>
             <li class="tile">
               <img
@@ -205,10 +226,70 @@
                   Awards organisation
                 </a>
               </p>
+              <button class="tile__help" data-modal="award" type="button">
+                <span>Award information</span>
+                <template>
+                  <h2 class="modal__title">Modal title</h2>
+                  <div class="modal__text rich-text">
+                    <p>Modal text</p>
+                  </div>
+                </template>
+              </button>
             </li>
           </ul>
         </div>
       </div>
+
+      <aside
+        class="modal"
+        id="modal"
+        aria-label="Award information"
+        aria-hidden="true"
+      >
+        <div class="modal__backdrop" data-a11y-dialog-hide></div>
+        <div class="modal__inner" role="document">
+          <button
+            class="modal__close"
+            aria-label="Close dialog"
+            data-a11y-dialog-hide
+            type="button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#523aa4"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                vector-effect="non-scaling-stroke"
+              ></circle>
+              <line
+                x1="15"
+                y1="9"
+                x2="9"
+                y2="15"
+                vector-effect="non-scaling-stroke"
+              ></line>
+              <line
+                x1="9"
+                y1="9"
+                x2="15"
+                y2="15"
+                vector-effect="non-scaling-stroke"
+              ></line>
+            </svg>
+          </button>
+          <div class="modal__content" id="modal-content"></div>
+        </div>
+      </aside>
     </section>
   </body>
 </html>
