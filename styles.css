@@ -1272,3 +1272,24 @@ svg {
 .modal__text {
   margin-top: 1em;
 }
+
+.modal__footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5em;
+}
+
+.modal__link {
+  display: block;
+  width: 1.5em;
+  opacity: 0.5;
+  transition: opacity var(--transition-duration);
+}
+
+.modal__link:hover {
+  opacity: 1;
+}
+
+.modal__icon {
+  fill: var(--color-purple);
+}
