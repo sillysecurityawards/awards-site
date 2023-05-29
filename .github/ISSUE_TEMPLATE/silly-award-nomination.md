@@ -10,15 +10,15 @@ Please add the following details to nominate an award for inclusion on the site:
 
 ### Award name
 
-*REPLACE_THIS_WITH_AWARD_NAME*
+*REPLACE_WITH_AWARD_NAME*
 
 ### Awarding organisation
 
-*REPLACE_THIS_WITH_ORGANIZATION*
+*REPLACE_WITH_ORGANIZATION*
 
 ### Link to award page / organisation site
 
-*REPLACE_THIS_WITH_LINK*
+*REPLACE_WITH_LINK*
 
 ### Reason for nomination
 
